@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #define BADVAL -9999
 
+// define node and nodeptr
 struct node {
     int info;
     struct node *next;
@@ -9,12 +10,14 @@ struct node {
 
 typedef struct node * NODEPTR;
 
+// define queue
 struct queue {
     NODEPTR front, rear;
 };
 
 typedef struct queue QUEUE;
 
+// function to create a node
 NODEPTR createNode(int val) {
     NODEPTR p;
     p = (NODEPTR) malloc(sizeof(NODEPTR));
@@ -23,6 +26,7 @@ NODEPTR createNode(int val) {
     return p;
 }
 
+// function to insert a value in the queue using the principles of linked lists
 void insert(QUEUE *q, int val) {
     NODEPTR temp;
     temp = createNode(val);
@@ -36,6 +40,7 @@ void insert(QUEUE *q, int val) {
     }
 }
 
+// function to delete a value in the queue and return that using the principles of linked lists
 int delete(QUEUE *q) {
     if (q->front == NULL) return BADVAL;
 
